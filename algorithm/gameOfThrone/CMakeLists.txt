@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 2.8)
+
+project(game)
+
+set(BIN_DIR ${CMAKE_SOURCE_DIR}/bin)
+
+IF(NOT EXISTS ${BIN_DIR})
+	FILE(MAKE_DIRECTORY ${BIN_DIR})
+ENDIF(NOT EXISTS ${BIN_DIR})
+
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
+
+set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS} -g")
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
+
+ADD_EXECUTABLE(game src/main) 
